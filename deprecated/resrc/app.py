@@ -10,6 +10,7 @@ import os
 from __init__ import db, SECRET
 from models import (NotReceived, User, Product, Order, #Image,
 	db_drop_and_create_all, populate_tables)
+from auth import (requires_auth)
 from flask_cors import CORS
 from pydantic_models import (validate_model_id, validate_model_id_pydantic,
 UserPost, UserUpdatePassword, ProductPost, OrderPost, OrderUpdate)
