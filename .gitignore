@@ -1,6 +1,7 @@
 # Backend #
 
 *.sqlite
+*.sqlite3
 
 *.zip
 src/env
