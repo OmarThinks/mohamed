@@ -8,7 +8,12 @@ from django.test import TestCase
 from django.test import SimpleTestCase, TransactionTestCase, LiveServerTestCase
 from products.models import Product
 
-from cantiin.populate import (populate_products,populate_users)
+from cantiin.populate import (
+	delete_users, delete_products,
+	delete_all_records,
+	
+	populate_products,populate_users,
+	populate_all)
 
 from django.test.runner import DiscoverRunner
 

@@ -1,27 +1,31 @@
+from django.contrib.auth.models import User
 from products.models import Product
 
 
+def delete_users():
+	User.objects.using("testing").all().delete()
 
-def drop_db():
-	from django.db import connection
-	cursor = connection.cursor()
-	cursor.execute("DROP DATABASE %s;", [connection.settings_dict['NAME']])
-
-def create_db():
-	from django.db import connection
-	cursor = connection.cursor()
-	cursor.execute("CREATE DATABASE %s;", [connection.settings_dict['NAME']])
-
-def drop_create_db():
-	drop_db()
-	create_db()
+def delete_products():
+	Product.objects.using("testing").all().delete()
 
 
 
-from django.contrib.auth.models import User
+
+def delete_all_records():
+	delete_users()
+	delete_products()
+
+
+
+
+
+
+
+
+
 
 def populate_users():
-	User.objects.using("testing").all().delete()
+	delete_users()
 
 	# 1
 	User.objects.using("testing").create(
@@ -38,7 +42,7 @@ def populate_users():
 
 
 def populate_products():
-	Product.objects.using("testing").all().delete()
+	delete_products()
 	
 	all_users = User.objects.using("testing"
 		).order_by('-id').all() 
@@ -68,6 +72,13 @@ def populate_products():
 
 
 
+
+
+
+def populate_all():
+	delete_all_records()
+	populate_users()
+	populate_products()
 
 
 
