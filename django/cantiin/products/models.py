@@ -17,10 +17,7 @@ class Product(models.Model):
 
 
 
-def populate_prodcuts():
-	Product.objects.all().delete()
-	p1 = Product.objects.create(name = "Android", price = 5, 
-		in_stock = True, owner = 1)
+
 
 
 

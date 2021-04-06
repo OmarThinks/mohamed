@@ -1,26 +1,38 @@
 from django.test import TestCase
+#from unittest import TestCase
 
 # Create your tests here.
 
 
 
-from django.test import TestCase
-from product.models import Product
+from django.test import SimpleTestCase, TransactionTestCase, LiveServerTestCase
+from products.models import Product
+
+from cantiin.populate import (populate_products,populate_users)
+
+from django.test.runner import DiscoverRunner
 
 
+import unittest
 
+#print(SimpleTestCase.settings())
+class ProductTestCase(unittest.TestCase):
+	
 
-class ProductTestCase(TestCase):
 	def setUp(self):
+		populate_users()
+		populate_products()
+	def tearDown():
+		pass
+	
+	def test_case1(self):
+		#populate_users()
+		#populate_products()
+		print("first_test_case")
+	
 
-	def test_animals_can_speak(self):
-		"""Animals that can speak are correctly identified"""
-		lion = Animal.objects.get(name="lion")
-		cat = Animal.objects.get(name="cat")
-		self.assertEqual(lion.speak(), 'The lion says "roar"')
-		self.assertEqual(cat.speak(), 'The cat says "meow"')
 
 
 
 
-
+# run_tests()
