@@ -22,7 +22,7 @@ class ProductTestCase(unittest.TestCase):
 	def setUp(self):
 		populate_users()
 		populate_products()
-	def tearDown():
+	def tearDown(self):
 		pass
 	
 	def test_case1(self):
