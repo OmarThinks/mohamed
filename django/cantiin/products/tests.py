@@ -1,43 +1,26 @@
-from django.test import TestCase
-#from unittest import TestCase
-
-# Create your tests here.
-
-
-
-from django.test import SimpleTestCase, TransactionTestCase, LiveServerTestCase
+# python manage.py test
+from django.contrib.auth.models import User
 from products.models import Product
 
+
 from cantiin.populate import (
-	delete_users, delete_products,
-	delete_all_records,
-	
-	populate_products,populate_users,
-	populate_all)
+delete_users, delete_products, delete_all_records,
+populate_products ,populate_users ,populate_all)
 
-from django.test.runner import DiscoverRunner
+from unittest import TestCase
 
-
-import unittest
-
-#print(SimpleTestCase.settings())
-class ProductTestCase(unittest.TestCase):
-	
-
-	def setUp(self):
-		populate_users()
-		populate_products()
-	def tearDown(self):
-		pass
-	
+class AllWorkingTestCase(TestCase):
 	def test_case1(self):
-		#populate_users()
-		#populate_products()
-		print("first_test_case")
+		print("Test cases abouta start")
 	
 
+class populate_usersTestCase(TestCase):
+	"""docstring for ClassName"""
+	def __init__(self, arg):
+		super(ClassName, self).__init__()
+		self.arg = arg
+		
+
+		
 
 
-
-
-# run_tests()

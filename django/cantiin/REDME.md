@@ -7,3 +7,7 @@
 ```
 
 
+```bash
+python manage.py test products.tests --keepdb
+```
+
